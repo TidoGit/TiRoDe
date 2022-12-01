@@ -1,0 +1,27 @@
+
+echo "VxCazJaVykI6W36BkBU0mJTCM8rR95XT" | nc -l localhost -p 6660 &
+
+NvEJF7oVjkddltPSrdKEFOllh9V1IBcq
+
+bandit 22
+WdDozAdTM2z9DiFEQ2mGlwngMfj4EZff
+
+QYw0Y2aiA672PsMmh9puTQuhoz8SyR2G
+
+bandit24
+VAfGXJ1PBSsPSnvsjI8p759leLZ9GGar
+
+p7TaowMYrmu23Ol8hiZh9UvD0O9hpx8d
+
+bandit26
+c7GvcKlw9mC7aUQaPx7nwFstuAIBw1o1
+
+YnQpBuifNMas1hcUFk70ZmqkhUU2EuaS
+fatal: Interactive git shell is not enabled.
+hint: ~/git-shell-commands should exist and have read and execute access.
+Connection to bandit.labs.overthewire.org closed.
+
+AVanL161y9rsbcJIsFHuw35rjaOM19nR
+
+bandit29
+tQKvmcwNYcFS6vmPHIUSI3ShmsrQZK8S
