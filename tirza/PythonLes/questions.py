@@ -1,3 +1,6 @@
+'''Easy try-out script with multiple solutions
+   uncomment to try them out'''
+
 name = input("What is your name?\n")
 colour = input("What is your favorite colour?\n")
 animal = input("What is your favorite animal?\n")
