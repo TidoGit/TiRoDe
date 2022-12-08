@@ -45,4 +45,4 @@ while True:
         break
     # Fallback for when no supported option is selected.
     else:
-        print("Invalid input, please choose '1' or '2'.")
+        print("Invalid input, please choose a valid option (1 to 5).")
