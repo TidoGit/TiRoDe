@@ -21,10 +21,11 @@ def calc_divide(x,y):
     total = x / y
     return total
 
-def calc_exp(x,y):
-    total = x ** y
-    return total
+#def calc_exp(x,y):
+#    total = x ** y
+#    return total
 
+#option menu
 while True:
     print("Option menu \n")
     print(12 * "=")
@@ -32,21 +33,32 @@ while True:
     print("2. minus")
     print("3. multiply")
     print("4. divide")
-    print("5. exponent")
+    print("5. quit")
 
 
     answer = input("Please make a choice:\n")
     x = float(input("Enter a number: \n"))
     y = float(input("Enter a number: \n"))
 
-    if answer == "add" or "1":
-        print("Calculating " + x  + "+" + y )
+    if answer == "1":
+        print("\nCalculating %.2f + %.2f" %(x, y))
         print("Answer: " + str(calc_add(x,y)))
-    elif answer == "minus" or "2":
+        print("\n \n")
+    elif answer == "2":
+        print("\nCalculating %.2f - %.2f" %(x, y))
         print("Answer: " + str(calc_minus(x,y)))
-    elif answer == "multiply" or "3":
+        print("\n \n")
+    elif answer == "3":
+        print("\nCalculating %.2f * %.2f" %(x, y))
         print("Answer: " + str(calc_multiply(x,y)))
-    elif answer == "divide" or "4":
+        print("\n \n")
+    elif answer == "4":
+        print("\nCalculating %.2f / %.2f" %(x, y))
         print("Answer: " + str(calc_divide(x,y)))
-    elif answer == "exponent" or "5":
-        print("Answer: " + str(calc_exp(x,y)))
+        print("\n \n")
+    elif answer == "5":
+        print("\nBye Bye")
+        break
+    else:
+        print("\n Sorry i didn't catch that, try again \n \n")
+        continue
