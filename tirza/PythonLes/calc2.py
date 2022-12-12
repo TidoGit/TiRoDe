@@ -37,28 +37,29 @@ while True:
 
 
     answer = input("Please make a choice:\n")
-    x = float(input("Enter a number: \n"))
-    y = float(input("Enter a number: \n"))
-
-    if answer == "1":
-        print("\nCalculating %.2f + %.2f" %(x, y))
-        print("Answer: " + str(calc_add(x,y)))
-        print("\n \n")
-    elif answer == "2":
-        print("\nCalculating %.2f - %.2f" %(x, y))
-        print("Answer: " + str(calc_minus(x,y)))
-        print("\n \n")
-    elif answer == "3":
-        print("\nCalculating %.2f * %.2f" %(x, y))
-        print("Answer: " + str(calc_multiply(x,y)))
-        print("\n \n")
-    elif answer == "4":
-        print("\nCalculating %.2f / %.2f" %(x, y))
-        print("Answer: " + str(calc_divide(x,y)))
-        print("\n \n")
-    elif answer == "5":
+    if answer == "5":
         print("\nBye Bye")
         break
-    else:
-        print("\n Sorry i didn't catch that, try again \n \n")
-        continue
+    else :
+        x = float(input("Enter a number: \n"))
+        y = float(input("Enter a number: \n"))
+
+        if answer == "1":
+            print("\nCalculating %.2f + %.2f" %(x, y))
+            print("Answer: " + str(calc_add(x,y)))
+            print("\n \n")
+        elif answer == "2":
+            print("\nCalculating %.2f - %.2f" %(x, y))
+            print("Answer: " + str(calc_minus(x,y)))
+            print("\n \n")
+        elif answer == "3":
+            print("\nCalculating %.2f * %.2f" %(x, y))
+            print("Answer: " + str(calc_multiply(x,y)))
+            print("\n \n")
+        elif answer == "4":
+            print("\nCalculating %.2f / %.2f" %(x, y))
+            print("Answer: " + str(calc_divide(x,y)))
+            print("\n \n")
+        else:
+            print("\n Sorry i didn't catch that, try again \n \n")
+            continue
