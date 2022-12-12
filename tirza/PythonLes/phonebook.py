@@ -23,7 +23,7 @@ print(8 * "-" )
 def phonebook_list():
     for entry in mini_db:
         #print(entry)
-        print("Name : " + entry[0])
+        print("Name   : " + entry[0])
         print("Number : " + entry[1])
         print("E-mail : " + entry[2])
         print(24 * "-")
