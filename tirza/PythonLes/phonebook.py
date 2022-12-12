@@ -15,14 +15,18 @@ Implement functionality 2: when the user chooses this, use input() three times t
 
 #Write a mini database to store contact information (name, phone number and email address).
 #Use proper variablenames. [[<NAME>, <PHONE>, <EMAIL>], [<NAME>, <PHONE>, <EMAIL>]]
-mini_db = [["bla", "061234567", "bla@bla.bla"]]
+mini_db = [["bla", "061234567", "bla@bla.bla"], ["John Smith", "061234567", "John.S@blabla.com"]]
 print("Phonebook")
 print(8 * "-" )
 
 #print option 1 : list entries
 def phonebook_list():
     for entry in mini_db:
-        print(entry)
+        #print(entry)
+        print("Name : " + entry[0])
+        print("Number : " + entry[1])
+        print("E-mail : " + entry[2])
+        print(24 * "-")
 
 #print option 2 : add entry
 def phonebook_add():
@@ -34,7 +38,7 @@ def phonebook_add():
 
 #add functionality
 while True:    
-    print("Welcome: \n Press 1 to show entries \n Press 2 to add entry \n Press 3 to quit")
+    print("\nWelcome: \n Press 1 to show entries \n Press 2 to add entry \n Press 3 to quit")
     answer = input("Choose your option: \n")
     if answer == "1":
         phonebook_list()
