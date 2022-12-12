@@ -43,8 +43,11 @@ while True:
         break
     #handle options
     else :
-        x = float(input("Enter a number: \n"))
-        y = float(input("Enter a number: \n"))
+        #x = float(input("Enter a number: \n"))
+        #y = float(input("Enter a number: \n"))
+        calc_input = input("Insert two numbers, separated by a comma: \n")
+        x = float(calc_input.split(",")[0])
+        y = float(calc_input.split(",")[1])
 
         if answer == "1":
             print("\nCalculating %.2f + %.2f" %(x, y))
