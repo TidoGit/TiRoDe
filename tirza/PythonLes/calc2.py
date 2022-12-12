@@ -37,9 +37,11 @@ while True:
 
 
     answer = input("Please make a choice:\n")
+    #handle quit
     if answer == "5":
         print("\nBye Bye")
         break
+    #handle options
     else :
         x = float(input("Enter a number: \n"))
         y = float(input("Enter a number: \n"))
@@ -60,6 +62,7 @@ while True:
             print("\nCalculating %.2f / %.2f" %(x, y))
             print("Answer: " + str(calc_divide(x,y)))
             print("\n \n")
+        #handle wrong option input
         else:
             print("\n Sorry i didn't catch that, try again \n \n")
             continue
