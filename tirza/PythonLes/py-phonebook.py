@@ -25,6 +25,7 @@ mini_db = [{
     "Number" : "061234567", 
     "E-mail" : "John.S@blabla.com"
     }]    
+
 def phonebook_refresh():    
     index_num = -1
     for entry in mini_db:
@@ -46,7 +47,7 @@ def phonebook_add():
     entry = {"ID#" : "", "Name" : name, "Number" : phone, "E-mail" : email}
     mini_db.append(entry)
     #Print a success message
-    print('Contact successfully saved')
+    print("Entry successfully saved")
     phonebook_refresh()
 
 def phonebook_delete(entry):
@@ -54,11 +55,12 @@ def phonebook_delete(entry):
     yesorno = input("would you like to delete:\n (Y)yes or (N)o ?")
     if yesorno.lower() == "y":
         del mini_db[entry["ID#"]]
+        print("Entry successfully deleted")
+        phonebook_refresh()
     else:
         menu()
 
 def find_entries():
-    phonebook_refresh()
     find_entry = input("Enter your search:\n")
     try:
         find_entry = int(find_entry)

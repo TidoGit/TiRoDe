@@ -31,6 +31,14 @@ def phonebook_add():
     mini_db.append(entry)
 
 #find and destroy!
+def phonebook_delete(entry):
+    phonebook_list(entry)
+    yesorno = input("would you like to delete:\n (Y)yes or (N)o ?")
+    if yesorno.lower() == "y":
+        del mini_db[entry]
+    else:
+        phonebook_change()
+
 def phonebook_change():
     print("Changing entries\n")
     find_entry = input("Enter your search:\n")
@@ -39,12 +47,12 @@ def phonebook_change():
         max_input = len(mini_db) -1
         if find_entry <= max_input:
             entry = mini_db[find_entry]
-            phonebook_list(entry)
+            phonebook_delete(entry)
     except:
         find_entry = str(find_entry)
         for entry in mini_db:
             if find_entry in entry["E-mail"]:
-                phonebook_list(entry)
+                phonebook_delete(entry)
             else:
                 break
 
