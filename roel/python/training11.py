@@ -99,7 +99,7 @@ while True:
     # Option to remove a contact.
     elif option == '3':
         remove_entry()
-    #Option to quit the script.
+    # Option to quit the script.
     elif option == '4':
         quit()
     # Fallback for when unsupported option is entered.
