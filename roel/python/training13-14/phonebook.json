@@ -1,0 +1,36 @@
+{
+    "handige.harrie@debaroncrime.org": {
+        "name": "harrie",
+        "id": 1,
+        "phone": {
+            "phone0": "1234567890",
+            "phone1": "9876543210"
+        },
+        "alt_email": {
+            "email0": "boefje69@bassie.nl",
+            "email1": "boefje69@adriaan.nl"
+        }
+    },
+    "b.een.nul.nul@debaroncrime.org": {
+        "name": "b100",
+        "id": 2,
+        "phone": {
+            "phone0": "0100100100"
+        },
+        "alt_email": {
+            "email0": "altijdpech@zoekuwgeluk.nl"
+        }
+    },
+    "b.twee@debaroncrime.org": {
+        "name": "b2",
+        "id": 3,
+        "phone": {
+            "phone0": "3463737321",
+            "phone1": "4784893626",
+            "phone2": "1634849626"
+        },
+        "alt_email": {
+            "email0": "watzeggie@beterhoren.nl"
+        }
+    }
+}
