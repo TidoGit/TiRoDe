@@ -43,7 +43,7 @@ def search_result(contact, results):
 # Search for a contact.
 def search_contacts():
     contacts = import_contacts()
-    query = input("Enter search query. To search contact IDs; add '-id'.\n>>>")
+    query = input("Enter search query. To search contact IDs; add '-id'.\n>>> ")
     query = query.lower()
     index_trigger = '-id'
     results = []
@@ -76,7 +76,7 @@ def search_contacts():
                 continue
     # Fallback
     if len(results) == 0:
-        print('\n****No contacts match given query.')
+        print('\n**** No contacts match given query.')
     return results
 
 # Add a contact.
@@ -85,7 +85,7 @@ def add_contact():
     pri_email = input('Enter primary email address:\n>>> ').lower()
     for contact in contacts:
         if pri_email in contacts.keys():
-            print('\n****Email address already in use!')
+            print('\n**** Email address already in use!')
             return
     name = input('Enter name:\n>>> ').lower()
     # Add multiple phone numbers.
@@ -96,7 +96,7 @@ def add_contact():
         if phone_index == 0:
             phone_num = input('Enter phone number:\n>>> ')
             if len(phone_num) == 0:
-                print('\n****Provide at least one phone number!')
+                print('\n**** Provide at least one phone number!')
                 continue
         else:
             phone_num = input('Enter alternative phone number:\n>>> ')
@@ -114,11 +114,11 @@ def add_contact():
         email_addr = input('Enter alternative email address:\n>>> ').lower()
         if email_index == 0:
             if len(email_addr) == 0:
-                print('\n****Provide at least one alternative email address!')
+                print('\n**** Provide at least one alternative email address!')
                 continue        
         if email_addr != '':
             email_addresses[f'email{email_index}'] = email_addr
-            email_index =+ 1
+            email_index += 1
         else:
             break
     # Create contact entry in contacts.
@@ -147,8 +147,7 @@ def delete_contact():
             del contacts[result]
         export_contacts(contacts)
     else:
-        print('\n****No contacts deleted.')
-
+        print('\n**** No contacts deleted.')
 
 # Functionality
 def menu():
@@ -158,7 +157,7 @@ def menu():
         if choice == '1':
             contacts = import_contacts()
             if len(contacts) == 0:
-                print('\n****The phonebook is empty!')
+                print('\n**** The phonebook is empty!')
             else:
                 print('\n')
                 for contact in contacts:
@@ -174,7 +173,7 @@ def menu():
         elif choice == '5':
             break
         else:
-            print('\n****Invalid input, please choose 1, 2, 3, 4, or 5.')
+            print('\n**** Invalid input, please choose 1, 2, 3, 4, or 5.')
 
 if __name__ == '__main__':
     menu()
