@@ -139,7 +139,6 @@ def add_contact():
 def delete_contact():
     results = search_contacts()
     contacts = import_contacts()
-    del_counter = 0
     for result in results:
         print_contact(result)
     del_confirm = input('Delete these contacts? (y/n):\n>>> ').lower()
