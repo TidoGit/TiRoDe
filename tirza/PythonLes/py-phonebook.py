@@ -11,9 +11,10 @@ def menu():
                     5. Exit
                     Enter your entry here(1,2,3,4 or 5):  """))
     
-#Close the function    
+    #Close the function    
     return menu_choice
 
+#phonebook file
 mini_db = [{
     "ID#"    : 0,
     "Name"   : "bla", 
@@ -26,12 +27,14 @@ mini_db = [{
     "E-mail" : "John.S@blabla.com"
     }]    
 
+#updates the phonebook file
 def phonebook_refresh():    
     index_num = -1
     for entry in mini_db:
         index_num += 1
         entry["ID#"] = index_num
 
+#create a formatted list of all entries
 def phonebook_list(entry):
     phonebook_refresh()
     print("ID#    : " + str(entry["ID#"]))
@@ -40,6 +43,7 @@ def phonebook_list(entry):
     print("E-mail : " + entry["E-mail"])
     print(24 * "-")
 
+#add a new entry
 def phonebook_add():
     name = input("Enter Name: \n")
     phone = input("Enter Phonenumber: \n")
@@ -50,6 +54,7 @@ def phonebook_add():
     print("Entry successfully saved")
     phonebook_refresh()
 
+#delete the entry yes or no
 def phonebook_delete(entry):
     phonebook_list(entry)
     yesorno = input("would you like to delete:\n (Y)yes or (N)o ?")
@@ -60,6 +65,7 @@ def phonebook_delete(entry):
     else:
         menu()
 
+#find an entry and ask for delete yes or no
 def find_entries():
     find_entry = input("Enter your search:\n")
     try:
