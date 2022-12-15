@@ -150,7 +150,9 @@ def delete_contact():
     else:
         print('\n****No contacts deleted.')
 
-if __name__ == '__main__':
+
+# Functionality
+def menu():
     while True:
         choice = input('''What to do?\n1. List all contacts\n2. Search contact\
             \n3. Add contact\n4. Delete contact\n5. Quit \n>>> ''')
@@ -174,3 +176,6 @@ if __name__ == '__main__':
             break
         else:
             print('\n****Invalid input, please choose 1, 2, 3, 4, or 5.')
+
+if __name__ == '__main__':
+    menu()
