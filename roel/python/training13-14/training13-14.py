@@ -3,14 +3,19 @@ import json
 
 # Import phonebook from 'phonebook.json'.
 def import_contacts():
-    phonebook = json.load(open('phonebook.json', 'r'))
+    with open('phonebook.json', 'r') as file:
+        phonebook = json.load(file)
     return phonebook
+    # phonebook = json.load(open('phonebook.json', 'r'))
+    # return phonebook
 
 
 # Export contacts to 'phonebook.json'.
 def export_contacts(exp_contacts):
-    phonebook = open('phonebook.json', 'w')
-    json.dump(exp_contacts, phonebook, indent = 4)
+    with open('phonebook.json', 'w') as file:
+        json.dump(exp_contacts, file, indent = 4)
+    # phonebook = open('phonebook.json', 'w')
+    # json.dump(exp_contacts, phonebook, indent = 4)
 
 
 # Print a contact.
@@ -130,7 +135,7 @@ def add_contact():
     # Create contact entry in contacts.
     id_num_list = []
     for contact in contacts:
-        id_num_list.append(contacts[contact['id']])
+        id_num_list.append(contacts[contact]['id'])
     id_num = max(id_num_list) + 1
     contact_info = {
         'name' : name,
