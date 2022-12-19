@@ -1,14 +1,17 @@
 import json
 
+
 # Import phonebook from 'phonebook.json'.
 def import_contacts():
     phonebook = json.load(open('phonebook.json', 'r'))
     return phonebook
 
+
 # Export contacts to 'phonebook.json'.
 def export_contacts(exp_contacts):
     phonebook = open('phonebook.json', 'w')
     json.dump(exp_contacts, phonebook, indent = 4)
+
 
 # Print a contact.
 def print_contact(contact):
@@ -32,6 +35,7 @@ def print_contact(contact):
             print(f'Alt. address   : {value}')
     print('\n')
 
+
 # Add search result function
 def search_result(contact, results):
     if contact in results:
@@ -39,6 +43,7 @@ def search_result(contact, results):
     else:
         results.append(contact)
         return results
+
 
 # Search for a contact.
 def search_contacts():
@@ -78,6 +83,7 @@ def search_contacts():
     if len(results) == 0:
         print('\n**** No contacts match given query.')
     return results
+
 
 # Add a contact.
 def add_contact():
@@ -135,6 +141,7 @@ def add_contact():
     contacts[pri_email] = contact_info
     export_contacts(contacts)
 
+
 # Delete a contact
 def delete_contact():
     results = search_contacts()
@@ -148,6 +155,7 @@ def delete_contact():
         export_contacts(contacts)
     else:
         print('\n**** No contacts deleted.')
+
 
 # Functionality
 def menu():
@@ -174,6 +182,7 @@ def menu():
             break
         else:
             print('\n**** Invalid input, please choose 1, 2, 3, 4, or 5.')
+
 
 if __name__ == '__main__':
     menu()
