@@ -1,39 +1,48 @@
+'''
+Contact managing tool which stores data in dicts inside a dict. The main dict
+uses a contact's main email address as the unique identifier.
+
+Adding contacts or displaying a specific contact's data is done through their
+email address.
+
+Writes the main dictionary into file 'phonebook.json' and loads from this file
+when needed.
+'''
+
 import json
 
 
-# Import phonebook from 'phonebook.json'.
 def import_contacts():
-    with open('phonebook.json', 'r') as file:
+    '''Import phonebook from 'phonebook.json'.'''
+    with open('phonebook.json', 'r', encoding='UTF-8') as file:
         phonebook = json.load(file)
     return phonebook
-    # phonebook = json.load(open('phonebook.json', 'r'))
-    # return phonebook
 
 
-# Export contacts to 'phonebook.json'.
 def export_contacts(exp_contacts):
-    with open('phonebook.json', 'w') as file:
+    '''Export contacts to 'phonebook.json'.'''
+    with open('phonebook.json', 'w', encoding='UTF-8') as file:
         json.dump(exp_contacts, file, indent = 4)
-    # phonebook = open('phonebook.json', 'w')
-    # json.dump(exp_contacts, phonebook, indent = 4)
 
 
-# Print a contact.
 def print_contact(contact):
+    '''Print a contact.'''
     contacts = import_contacts()
     print(f'Email address  : {contact}')
-    print(f'Contact ID     :', contacts[contact]['id'])
+    print('Contact ID     :', contacts[contact]['id'])
     print(f'Name{11*" "}:', contacts[contact]['name'].title())
     phone_num = 0
-    for key, value in contacts[contact]['phone'].items():
+    for key in contacts[contact]['phone']:
         phone_num += 1
-        if phone_num > 1: 
+        value = contacts[contact]['phone'].get(key)
+        if phone_num > 1:
             print(f'Phone number {phone_num} : {value}')
         else:
             print(f'Phone number   : {value}')
     email_num = 0
-    for key, value in contacts[contact]['alt_email'].items():
+    for key in contacts[contact]['alt_email']:
         email_num += 1
+        value = contacts[contact]['alt_email'].get(key)
         if email_num > 1:
             print(f'Alt. address {email_num} : {value}')
         else:
@@ -41,17 +50,15 @@ def print_contact(contact):
     print('\n')
 
 
-# Add search result function
 def search_result(contact, results):
-    if contact in results:
-        return results
-    else:
+    '''Add search result function.'''
+    if contact not in results:
         results.append(contact)
-        return results
+    return results
 
 
-# Search for a contact.
 def search_contacts():
+    '''Search for a contact.'''
     contacts = import_contacts()
     query = input("Enter search query. To search contact IDs; add '-id'.\n>>> ")
     query = query.lower()
@@ -64,8 +71,6 @@ def search_contacts():
             # Match ID.
             if query == contacts[contact]['id']:
                 results = search_result(contact, results)
-                continue
-            else:
                 break
         # Match primary email address.
         if query in contact:
@@ -75,13 +80,13 @@ def search_contacts():
             results = search_result(contact, results)
             continue
         # Match phone numbers.
-        for key, value in contacts[contact]['phone'].items():
-            if query in value:
+        for key in contacts[contact]['phone']:
+            if query in contacts[contact]['phone'].get(key):
                 results = search_result(contact, results)
                 continue
-        # Match alternative email addresses. 
-        for key, value in contacts[contact]['alt_email'].items():
-            if query in value:
+        # Match alternative email addresses.
+        for key in contacts[contact]['alt_email']:
+            if query in contacts[contact]['alt_email'].get(key):
                 results = search_result(contact, results)
                 continue
     # Fallback
@@ -90,8 +95,8 @@ def search_contacts():
     return results
 
 
-# Add a contact.
 def add_contact():
+    '''Add a contact.'''
     contacts = import_contacts()
     pri_email = input('Enter primary email address:\n>>> ').lower()
     for contact in contacts:
@@ -111,12 +116,10 @@ def add_contact():
                 continue
         else:
             phone_num = input('Enter alternative phone number:\n>>> ')
-        
-        if phone_num != '':
-            phone_numbers[f'phone{phone_index}'] = phone_num
-            phone_index += 1
-        else:
+        if phone_num == '':
             break
+        phone_numbers[f'phone{phone_index}'] = phone_num
+        phone_index += 1
     # Add multiple alternative email addresses.
     email_index = 0
     email_addr = ''
@@ -126,12 +129,11 @@ def add_contact():
         if email_index == 0:
             if len(email_addr) == 0:
                 print('\n**** Provide at least one alternative email address!')
-                continue        
-        if email_addr != '':
-            email_addresses[f'email{email_index}'] = email_addr
-            email_index += 1
-        else:
+                continue
+        if email_addr == '':
             break
+        email_addresses[f'email{email_index}'] = email_addr
+        email_index += 1
     # Create contact entry in contacts.
     id_num_list = []
     for contact in contacts:
@@ -140,15 +142,15 @@ def add_contact():
     contact_info = {
         'name' : name,
         'id' : id_num,
-        'phone' : phone_numbers, 
+        'phone' : phone_numbers,
         'alt_email' : email_addresses,
     }
     contacts[pri_email] = contact_info
     export_contacts(contacts)
 
 
-# Delete a contact
 def delete_contact():
+    '''Delete a contact.'''
     results = search_contacts()
     contacts = import_contacts()
     for result in results:
@@ -162,8 +164,8 @@ def delete_contact():
         print('\n**** No contacts deleted.')
 
 
-# Functionality
-def menu():
+def main():
+    '''Main menu'''
     while True:
         choice = input('''What to do?\n1. List all contacts\n2. Search contact\
             \n3. Add contact\n4. Delete contact\n5. Quit \n>>> ''')
@@ -190,4 +192,4 @@ def menu():
 
 
 if __name__ == '__main__':
-    menu()
+    main()
