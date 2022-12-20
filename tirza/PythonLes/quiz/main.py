@@ -7,7 +7,7 @@ It loops through the questions and checks the answers.
  
 
 import json
-
+import random
  
 
 
@@ -81,6 +81,7 @@ def loop_questions(questions):
 def main():
     while True:
         questions = import_questions()
+        questions = random.sample(questions)
         choice = input('''What whould you like to do?\n1. Take the quiz!\
             \n2. Add a question\n3. Quit\n''')
         if choice == '1':
