@@ -1,1 +1,18 @@
-[{"question": "Which is a Python DataType?", "a": "Integrity", "b": "Integer", "c": "Intellect", "d": "Inter", "answer": "b"}][{"question": "What is a correct syntax to output \"Hello World\" in Python?", "a": "print \"Hello World\"", "b": "echo(\"Hello World\"", "c": "p(\"Hello World\"", "d": "print(\"Hello World\")", "answer": "d"}]
+[
+    {
+        "question": "Which is a Python DataType?",
+        "a": "Integrity",
+        "b": "Integer",
+        "c": "Intellect",
+        "d": "Inter",
+        "answer": "b"
+    },
+    {
+        "question": "What is a correct syntax to output \"Hello World\" in Python?",
+        "a": "print \"Hello World\"",
+        "b": "echo(\"Hello World\"",
+        "c": "p(\"Hello World\"",
+        "d": "print(\"Hello World\")",
+        "answer": "d"
+    }
+]
