@@ -84,8 +84,8 @@ def update_scores(player_name, correct_answer):
 
 
 def main():
-    while True:
-        player_name = input('What is your name?\n')
+    player_name = input('What is your name?\n')
+    while True:    
         questions = import_questions()
         questions = random.sample(questions, k=5)
         correct_answer = 0
