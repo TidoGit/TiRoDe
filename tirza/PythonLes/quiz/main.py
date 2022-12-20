@@ -4,7 +4,11 @@ This quiz imports the questions from the file 'questions.json.
 It loops through the questions and checks the answers.
 '''
 
+ 
+
 import json
+
+ 
 
 
 def import_questions():
@@ -12,6 +16,8 @@ def import_questions():
     with open('questions.json', 'r', encoding='UTF-8') as file:
         questions = json.load(file)
     return questions
+
+ 
 
 
 def add_question(questions):
@@ -27,6 +33,8 @@ def add_question(questions):
     with open('questions.json', 'w', encoding='UTF-8') as file:
         json.dump(questions, file, indent = 4)
 
+ 
+
 
 def check_input():
     '''Checks if input is in list 'options'.'''
@@ -39,20 +47,24 @@ def check_input():
             print("Invalid input, please choose 'A', 'B', 'C', or 'D'.")
             continue
 
+ 
 
-def check_answer(question, correct_answer):
+
+def check_answer(question):
     '''Checks the given answer for the right answer to the question.'''
+    correct_answer = 0
     answer_input = check_input()
     if question['answer'] == answer_input:
         print('\nThat is correct!\n')
         correct_answer += 1
         print(f'Your score: {correct_answer}')
-        return correct_answer
     else:
-        print(f'\nNice try! The correct answer is {question["answer"].upper()}\n')
+        print(f'\nNice try! The correct answer is {question["answer"]}\n')
+
+ 
 
 
-def loop_questions(questions, correct_answer):
+def loop_questions(questions):
     '''Loops through the questions and keeps track of the answer.'''
     for question in questions:
         print('\n')
@@ -61,17 +73,18 @@ def loop_questions(questions, correct_answer):
                 print(f'{key.title()}: {value}')
             else:
                 continue
-        correct_answer = check_answer(question, correct_answer)
+        check_answer(question)
+
+ 
 
 
 def main():
     while True:
         questions = import_questions()
-        correct_answer = 0
         choice = input('''What whould you like to do?\n1. Take the quiz!\
             \n2. Add a question\n3. Quit\n''')
         if choice == '1':
-            correct_answer = loop_questions(questions, correct_answer)
+            loop_questions(questions)
         elif choice == '2':
             add_question(questions)
         elif choice == '3':
@@ -79,7 +92,8 @@ def main():
         else:
             print("Invalid input, please choose '1', '2' or '3'.")
 
+ 
+
 
 if __name__ == '__main__':
     main()
-
