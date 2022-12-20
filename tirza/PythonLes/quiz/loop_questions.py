@@ -20,7 +20,7 @@ def check_answer():
 def loop_questions(questions):
     '''Loops through the questions and keeps track of the answer.'''
     for question in questions:
-        for key, value in questions[question].items():
+        for key, value in question.items():
             if key != 'answer':
                 print(f'{key.title()} : {value}')
             else:
