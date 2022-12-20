@@ -12,7 +12,11 @@ Encapsulating code with functions'''
 #variables
 user_name = input("who's playing?")
 answer = input("Question here")
-questions = [("question", "answer")]
+questions = [{
+    "Question" : "question"
+    "Options"  : "options"
+    "Answer"   : "answer"
+}]
 
 #check answer function
 if answer == "input":
