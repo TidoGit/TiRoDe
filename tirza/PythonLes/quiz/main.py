@@ -48,7 +48,7 @@ def check_answer(question, correct_answer):
         correct_answer += 1
         print(f'Your score: {correct_answer}')
     else:
-        print(f'\nNice try! The correct answer is {question["answer"]}\n')
+        print(f'\nNice try! The correct answer is {question["answer"].upper()}\n')
 
 
 def loop_questions(questions, correct_answer):
