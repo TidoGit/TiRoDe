@@ -22,7 +22,7 @@ def loop_questions(questions):
     for question in questions:
         for key, value in question.items():
             if key != 'answer':
-                print(f'{key.title()} : {value}')
+                print(f'{key.title()}: {value}')
             else:
                 continue
         check_answer()
