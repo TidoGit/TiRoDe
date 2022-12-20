@@ -58,6 +58,7 @@ def check_answer(question):
         print('\nThat is correct!\n')
         correct_answer += 1
         print(f'Your score: {correct_answer}')
+        return correct_answer
     else:
         print(f'\nNice try! The correct answer is {question["answer"]}\n')
 
@@ -81,7 +82,7 @@ def loop_questions(questions):
 def main():
     while True:
         questions = import_questions()
-        questions = random.sample(questions)
+        questions = random.sample(questions, k=5)
         choice = input('''What whould you like to do?\n1. Take the quiz!\
             \n2. Add a question\n3. Quit\n''')
         if choice == '1':
