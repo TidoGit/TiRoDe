@@ -40,9 +40,8 @@ def check_input():
             continue
 
 
-def check_answer(question):
+def check_answer(question, correct_answer):
     '''Checks the given answer for the right answer to the question.'''
-    correct_answer = 0
     answer_input = check_input()
     if question['answer'] == answer_input:
         print('\nThat is correct!\n')
@@ -52,7 +51,7 @@ def check_answer(question):
         print(f'\nNice try! The correct answer is {question["answer"]}\n')
 
 
-def loop_questions(questions):
+def loop_questions(questions, correct_answer):
     '''Loops through the questions and keeps track of the answer.'''
     for question in questions:
         print('\n')
@@ -61,16 +60,17 @@ def loop_questions(questions):
                 print(f'{key.title()}: {value}')
             else:
                 continue
-        check_answer(question)
+        check_answer(question, correct_answer)
 
 
 def main():
     while True:
         questions = import_questions()
+        correct_answer = 0
         choice = input('''What whould you like to do?\n1. Take the quiz!\
             \n2. Add a question\n3. Quit\n''')
         if choice == '1':
-            loop_questions(questions)
+            loop_questions(questions, correct_answer)
         elif choice == '2':
             add_question(questions)
         elif choice == '3':
