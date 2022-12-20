@@ -53,7 +53,7 @@ def check_answer(question, correct_answer):
         print(f'Your score: {correct_answer}')
 
 
-def loop_questions(questions, correct_answer):
+def loop_questions(questions, player_name, correct_answer):
     '''Loops through the questions and keeps track of the answer.'''
     for question in questions:
         print('\n')
@@ -73,7 +73,9 @@ def show_scores():
             print(f'Player {key.title()} has {value} points.')
 
 
-def update_scores(player_name, correct_answer, high_scores):
+def update_scores(player_name, correct_answer):
+    with open('high_scores.json', 'r') as file:
+        high_scores = json.load(file)
     if player_name in high_scores:
         if correct_answer >= high_scores[player_name]:
             high_scores[player_name] = correct_answer
@@ -86,17 +88,16 @@ def main():
         player_name = input('What is your name?\n')
         questions = import_questions()
         questions = random.sample(questions, k=5)
-        high_scores = update_scores()
         correct_answer = 0
         choice = input('''What whould you like to do?\n1. Take the quiz!\
             \n2. Add a question\n3. Show high scores\n4. Quit\n''')
         if choice == '1':
-            correct_answer = loop_questions(questions, correct_answer)
-            update_scores(player_name, correct_answer, high_scores)
+            correct_answer = loop_questions(questions, player_name, correct_answer)
+            update_scores(player_name, correct_answer)
         elif choice == '2':
             add_question(questions)
         elif choice == '3':
-            high_scores = show_scores()
+            show_scores()
         elif choice == '4':
             break
         else:
