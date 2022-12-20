@@ -50,21 +50,22 @@ def check_input():
  
 
 
-def check_answer(question):
+def check_answer(question, correct_answer):
     '''Checks the given answer for the right answer to the question.'''
-    correct_answer = 0
+    #print(correct_answer)
     answer_input = check_input()
     if question['answer'] == answer_input:
         print('\nThat is correct!\n')
         correct_answer += 1
         print(f'Your score: {correct_answer}')
+        return correct_answer
     else:
-        print(f'\nNice try! The correct answer is {question["answer"]}\n')
-
+        print(f'\nNice try! The correct answer is {question["answer"].upper()}\n')
+        print(f'Your score: {correct_answer}')
  
 
 
-def loop_questions(questions):
+def loop_questions(questions, correct_answer):
     '''Loops through the questions and keeps track of the answer.'''
     for question in questions:
         print('\n')
@@ -73,19 +74,21 @@ def loop_questions(questions):
                 print(f'{key.title()}: {value}')
             else:
                 continue
-        check_answer(question)
+        correct_answer = check_answer(question, correct_answer)
+    return correct_answer
 
  
 
 
 def main():
-    while True:
+    while True:    
         questions = import_questions()
-        questions = random.sample(questions)
+        questions = random.sample(questions, k=5)
+        correct_answer = 0
         choice = input('''What whould you like to do?\n1. Take the quiz!\
-            \n2. Add a question\n3. Quit\n''')
+            \n2. Add a question\n3. Show high scores\n4. Quit\n''')
         if choice == '1':
-            loop_questions(questions)
+            correct_answer = loop_questions(questions, correct_answer)
         elif choice == '2':
             add_question(questions)
         elif choice == '3':

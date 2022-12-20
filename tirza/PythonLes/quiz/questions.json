@@ -1,66 +1,10 @@
 [
     {
-        "question": "Which is a Python DataType?",
-        "a": "Integrity",
-        "b": "Integer",
-        "c": "Intellect",
-        "d": "Inter",
-        "answer": "b"
-    },
-    {
-        "question": "What is a correct syntax to output \"Hello World\" in Python?",
-        "a": "print \"Hello World\"",
-        "b": "echo(\"Hello World\"",
-        "c": "p(\"Hello World\"",
-        "d": "print(\"Hello World\")",
-        "answer": "d"
-    },
-    {
         "question": "What is the correct file extension for Python files?",
         "a": ".pt",
         "b": ".python",
         "c": ".py",
         "d": ".py3",
-        "answer": "c"
-    },
-    {
-        "question": "Which is not a type of loop?",
-        "a": "while",
-        "b": "for",
-        "c": "nested",
-        "d": "in",
-        "answer": "d"
-    },
-    {
-        "question": "Which data stucture is faster?",
-        "a": "dictionary",
-        "b": "list",
-        "c": "both are equally fast",
-        "d": "these are not data stuctures",
-        "answer": "a"
-    },
-    {
-        "question": "How do you create a variable with the floating number 3.8",
-        "a": "x = 3.8",
-        "b": "x = float(3.8)",
-        "c": "both answers are correct",
-        "d": "both are false",
-        "answer": "c"
-    },
-    {
-        "question": "What is the correct syntax to output the type of a variable or object in Python?",
-        "a": "print(type(X))",
-        "b": "print(type:x)",
-        "c": "print(type(\"X\"))",
-        "d": "print\"type(x)\"",
-        "answer": "a"
-    },
-    {
-        "question": "What is the correct way to create a function in Python?",
-        "a": "def myFunction:",
-        "b": "def my_function()",
-        "c": "def my_function():",
-        "d": "def myFunction()",
         "answer": "c"
     },
     {
@@ -72,11 +16,35 @@
         "answer": "c"
     },
     {
+        "question": "Which data stucture is faster?",
+        "a": "dictionary",
+        "b": "list",
+        "c": "both are equally fast",
+        "d": "these are not data stuctures",
+        "answer": "a"
+    },
+    {
+        "question": "What is the correct way to create a function in Python?",
+        "a": "def myFunction:",
+        "b": "def my_function()",
+        "c": "def my_function():",
+        "d": "def myFunction()",
+        "answer": "c"
+    },
+    {
         "question": "Which operator is used to multiply numbers?",
         "a": "%",
         "b": "x",
         "c": "#",
         "d": "*",
         "answer": "d"
+    },
+    {
+        "question": "wie is de docent?",
+        "a": "niels",
+        "b": "roel",
+        "c": "luuk",
+        "d": "koen",
+        "answer": "a"
     }
 ]
