@@ -12,14 +12,20 @@ def import_questions():
     return questions
 
 
+def check_answer():
+    '''Hier stopt Daniel een stukje in.'''
+    print("Daniel's stukje.")
+
+
 def loop_questions(questions):
     '''Loops through the questions and keeps track of the answer.'''
     for question in questions:
         for key, value in questions[question].items():
             if key != 'answer':
-                print(f'{key.upper()} : {value}')
+                print(f'{key.title()} : {value}')
             else:
                 continue
+        check_answer()
 
 
 if __name__ == '__main__':
