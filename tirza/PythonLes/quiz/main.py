@@ -79,6 +79,8 @@ def update_scores(player_name, correct_answer):
     if player_name in high_scores:
         if correct_answer >= high_scores[player_name]:
             high_scores[player_name] = correct_answer
+    else:
+        high_scores[player_name] = correct_answer
     with open('high_scores.json', 'w', encoding='UTF-8') as file:
         json.dump(high_scores, file, indent = 4)
 
