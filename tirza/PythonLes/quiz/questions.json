@@ -65,10 +65,10 @@
     },
     {
         "question": "Which method can add elements to the end of a list?",
-        "a": ".add()",
-        "b": ".insert()",
-        "c": ".append()",
-        "d": ".update()",
+        "a": "add()",
+        "b": "insert()",
+        "c": "append()",
+        "d": "update()",
         "answer": "c"
     },
     {
