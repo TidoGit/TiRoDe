@@ -22,5 +22,21 @@
         "c": ".py",
         "d": ".py3",
         "answer": "c"
+    },
+    {
+        "question": "Which is not a type of loop?",
+        "a": "while",
+        "b": "for",
+        "c": "nested",
+        "d": "in",
+        "answer": "d"
+    },
+    {
+        "question": "Which data stucture is faster?",
+        "a": "dictionary",
+        "b": "list",
+        "c": "both are equally fast",
+        "d": "these are not data stuctures",
+        "answer": "a"
     }
 ]
