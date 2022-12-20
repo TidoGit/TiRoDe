@@ -53,7 +53,6 @@ def check_answer(question, score):
     return score
 
 
-
 def add_question(questions):
     '''Option to add a question to file 'questions.json'.'''
     question = input('Insert question:\n>>> ')
