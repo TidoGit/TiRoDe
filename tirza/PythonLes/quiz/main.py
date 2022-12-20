@@ -47,6 +47,7 @@ def check_answer(question, correct_answer):
         print('\nThat is correct!\n')
         correct_answer += 1
         print(f'Your score: {correct_answer}')
+        return correct_answer
     else:
         print(f'\nNice try! The correct answer is {question["answer"].upper()}\n')
 
@@ -60,7 +61,7 @@ def loop_questions(questions, correct_answer):
                 print(f'{key.title()}: {value}')
             else:
                 continue
-        check_answer(question, correct_answer)
+        correct_answer = check_answer(question, correct_answer)
 
 
 def main():
@@ -70,7 +71,7 @@ def main():
         choice = input('''What whould you like to do?\n1. Take the quiz!\
             \n2. Add a question\n3. Quit\n''')
         if choice == '1':
-            loop_questions(questions, correct_answer)
+            correct_answer = loop_questions(questions, correct_answer)
         elif choice == '2':
             add_question(questions)
         elif choice == '3':
