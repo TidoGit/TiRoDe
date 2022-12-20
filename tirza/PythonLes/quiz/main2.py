@@ -5,7 +5,7 @@ It loops through the questions and checks the answers.
 '''
 
 import json
-
+import random
 
 def import_questions():
     '''Import questions from 'questions.json'.'''
@@ -50,6 +50,7 @@ def check_answer(question, correct_answer):
         return correct_answer
     else:
         print(f'\nNice try! The correct answer is {question["answer"].upper()}\n')
+        print(f'Your score: {correct_answer}')
 
 
 def loop_questions(questions, correct_answer):
@@ -62,24 +63,49 @@ def loop_questions(questions, correct_answer):
             else:
                 continue
         correct_answer = check_answer(question, correct_answer)
+    return correct_answer
+
+
+def show_scores():
+    '''Import high scores from file high_scores.json'.'''
+    with open('high_scores.json', 'r', encoding='UTF-8') as file:
+        high_scores = json.load(file)
+        for key, value in high_scores.items():
+            print(f'Player {key.title()} has {value} points.')
+
+
+def update_scores(player_name, correct_answer):
+    with open('high_scores.json', 'r') as file:
+        high_scores = json.load(file)
+    if player_name in high_scores:
+        if correct_answer >= high_scores[player_name]:
+            high_scores[player_name] = correct_answer
+    else:
+        high_scores[player_name] = correct_answer
+    with open('high_scores.json', 'w', encoding='UTF-8') as file:
+        json.dump(high_scores, file, indent = 4)
 
 
 def main():
-    while True:
+    player_name = input('What is your name?\n')
+    while True:    
         questions = import_questions()
+        questions = random.sample(questions, k=5)
         correct_answer = 0
         choice = input('''What whould you like to do?\n1. Take the quiz!\
-            \n2. Add a question\n3. Quit\n''')
+            \n2. Add a question\n3. Show high scores\n4. Quit\n''')
         if choice == '1':
             correct_answer = loop_questions(questions, correct_answer)
+            update_scores(player_name, correct_answer)
         elif choice == '2':
             add_question(questions)
         elif choice == '3':
+            show_scores()
+        elif choice == '4':
             break
         else:
-            print("Invalid input, please choose '1', '2' or '3'.")
+            print("Invalid input, please choose '1', '2', '3' or '4'.")
 
 
 if __name__ == '__main__':
     main()
-
