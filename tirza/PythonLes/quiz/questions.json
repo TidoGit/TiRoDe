@@ -14,5 +14,13 @@
         "c": "p(\"Hello World\"",
         "d": "print(\"Hello World\")",
         "answer": "d"
+    },
+    {
+        "question": "What is the correct file extension for Python files?",
+        "a": ".pt",
+        "b": ".python",
+        "c": ".py",
+        "d": ".py3",
+        "answer": "c"
     }
 ]
