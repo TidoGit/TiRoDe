@@ -54,5 +54,21 @@
         "c": "print(type(\"X\"))",
         "d": "print\"type(x)\"",
         "answer": "a"
+    },
+    {
+        "question": "What is the correct way to create a function in Python?",
+        "a": "def myFunction:",
+        "b": "def my_function()",
+        "c": "def my_function():",
+        "d": "def myFunction()",
+        "answer": "c"
+    },
+    {
+        "question": "Which method can add elements to the end of a list?",
+        "a": ".add()",
+        "b": ".insert()",
+        "c": ".append()",
+        "d": ".update()",
+        "answer": "c"
     }
 ]
