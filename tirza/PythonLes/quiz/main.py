@@ -5,7 +5,7 @@ It loops through the questions and checks the answers.
 '''
 
 import json
-
+import random
 
 def import_questions():
     '''Import questions from 'questions.json'.'''
@@ -85,6 +85,7 @@ def main():
     while True:
         player_name = input('What is your name?\n')
         questions = import_questions()
+        questions = random.sample(questions, k=5)
         high_scores = update_scores()
         correct_answer = 0
         choice = input('''What whould you like to do?\n1. Take the quiz!\
