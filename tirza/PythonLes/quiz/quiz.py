@@ -1,7 +1,12 @@
+'''Python Quiz
+Test your python knowledge, add your own questions and keep highscores.'''
+
+
 import json
 from random import sample
 
 class Quiz:
+    '''Main Program'''
     def __init__(self):
         self.questions = self.import_data('questions')
         self.scores = self.import_data('high_scores')
