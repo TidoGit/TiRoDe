@@ -46,5 +46,13 @@
         "c": "luuk",
         "d": "koen",
         "answer": "a"
+    },
+    {
+        "question": "What does argv stand for?",
+        "a": "agreement variables",
+        "b": "argument variables",
+        "c": "argument values",
+        "d": "agreement values",
+        "answer": "c"
     }
 ]
