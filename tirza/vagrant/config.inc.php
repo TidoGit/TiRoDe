@@ -8,6 +8,7 @@
 $DBMS = 'MySQL';
 #$DBMS = 'PGSQL'; // Currently disabled
 
+
 # Database variables
 #   WARNING: The database specified under db_database WILL BE ENTIRELY DELETED during setup.
 #   Please use a database dedicated to DVWA.
@@ -15,23 +16,27 @@ $DBMS = 'MySQL';
 # If you are using MariaDB then you cannot use root, you must use create a dedicated DVWA user.
 #   See README.md for more information on this.
 $_DVWA = array();
-$_DVWA[ 'db_server' ]   = 'mysql.haxor.corp';
-$_DVWA[ 'db_database' ] = 'dvwa';
-$_DVWA[ 'db_user' ]     = 'dvwa';
-$_DVWA[ 'db_password' ] = 'password';
+$_DVWA[ 'db_server'] = 'mysql.haxor.corp';
 $_DVWA[ 'db_port'] = '3306';
+$_DVWA[ 'db_user' ] = 'dvwa';
+$_DVWA[ 'db_password' ] = 'happydays';
+$_DVWA[ 'db_database' ] = 'dvwa';
+
 
 # ReCAPTCHA settings
 #   Used for the 'Insecure CAPTCHA' module
 #   You'll need to generate your own keys at: https://www.google.com/recaptcha/admin
-$_DVWA[ 'recaptcha_public_key' ]  = '';
-$_DVWA[ 'recaptcha_private_key' ] = '';
+$_DVWA[ 'recaptcha_public_key' ]  = '6LfvTl4kAAAAAPcx5kIoQG1m-oL532vVCxgR_DiN';
+$_DVWA[ 'recaptcha_private_key' ] = '6LfvTl4kAAAAADcTrOFAPLFlg6f6OeijhfIf4G4y';
+
+
 
 # Default security level
 #   Default value for the security level with each session.
 #   The default is 'impossible'. You may wish to set this to either 'low', 'medium', 'high' or impossible'.
 $_DVWA[ 'default_security_level' ] = 'low';
 #$_DVWA[ 'default_security_level' ] = 'medium';
+
 
 # Default PHPIDS status
 #   PHPIDS status with each session.

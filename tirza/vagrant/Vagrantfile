@@ -16,16 +16,16 @@ yum install -y mariadb-server
 firewall-cmd --add-service=mysql --zone=public
 firewall-cmd --add-service=mysql --zone=public --permanent
 systemctl enable mariadb
-systemctl start mariadb
+systemctl start mariadb; sleep 10
 
 # DVWA db account
+mysql -u root << EOF
+create database dvwa;
+create user dvwa@'%' identified by 'happydays';
+grant all on dvwa.* to dvwa@'%';
+flush privileges;
+EOF
 
-echo "create database dvwa;" > ~/setup.mysql
-echo "create user dvwa@'%' identified by 'password';" >> ~/setup.mysql
-echo "grant all on dvwa.* to dvwa@'%';" >> ~/setup.mysql
-echo "flush privileges;" >> ~/setup.mysql
-
-mysql -u root -h localhost < setup.mysql
 
 # End of script.
 SCRIPT
@@ -40,9 +40,14 @@ mkdir /vagrant 2>/dev/null
 
 # Add hostnames to /etc/hosts.
 echo "192.168.56.11 mysql mysql.haxor.corp" >> /etc/hosts
-echo "192.168.56.12 www.haxor.corp" >> /etc/hosts
+echo "192.168.56.12 www www.haxor.corp" >> /etc/hosts
 
 # Fill in the rest here...
+setsebool -P httpd_unified 1
+setsebool -P httpd_can_network_connect 1
+setsebool -P httpd_can_network_connect_db 1
+
+
 yum install -y git mariadb httpd php php-mysqlnd php-gd 
 firewall-cmd --add-service=http --zone=public
 firewall-cmd --add-service=http --zone=public --permanent
@@ -50,10 +55,15 @@ firewall-cmd --add-service=https --zone=public
 firewall-cmd --add-service=https --zone=public --permanent
 
 
+
 git clone https://github.com/digininja/DVWA.git /var/www/html
 cp /vagrant/php.ini /etc/php.ini
+cp /vagrant/config.inc.php /var/www/html/config
+chown -R apache:apache /var/www/html
+chmod -R 777 /var/www/html
 
-setsebool -P httpd_can_network_connect_db 1
+systemctl enable httpd
+systemctl start httpd
 
 # End of script.
 SCRIPT
@@ -76,8 +86,8 @@ Vagrant.configure("2") do |config|
     end
     mysql.vm.hostname = "mysql.haxor.corp"
     # Switch these two, if Vagrant complains about "permission denied"
-    #mysql.vm.network "private_network", ip: "192.168.56.11", virtualbox__intnet: "dvwa"
-    mysql.vm.network "private_network", ip: "192.168.56.11"
+    mysql.vm.network "private_network", ip: "192.168.56.11", virtualbox__intnet: "dvwa"
+    #mysql.vm.network "private_network", ip: "192.168.56.11"
     ####
     mysql.vm.synced_folder ".", "/vagrant"
     mysql.vm.provider "virtualbox" do |v|
@@ -93,8 +103,8 @@ Vagrant.configure("2") do |config|
     end
     www.vm.hostname = "www.haxor.corp"
     # Switch these two, if Vagrant complains about "permission denied"
-    #www.vm.network "private_network", ip: "192.168.56.12", virtualbox__intnet: "dvwa"
-    www.vm.network "private_network", ip: "192.168.56.12"
+    www.vm.network "private_network", ip: "192.168.56.12", virtualbox__intnet: "dvwa"
+    #www.vm.network "private_network", ip: "192.168.56.12"
     ###
     www.vm.network "forwarded_port", guest: 80, host: 8080
     www.vm.synced_folder ".", "/vagrant"
