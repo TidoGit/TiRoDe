@@ -19,7 +19,7 @@ $_DVWA = array();
 $_DVWA[ 'db_server'] = 'mysql.haxor.corp';
 $_DVWA[ 'db_port'] = '3306';
 $_DVWA[ 'db_user' ] = 'dvwa';
-$_DVWA[ 'db_password' ] = 'happydays';
+$_DVWA[ 'db_password' ] = 'password';
 $_DVWA[ 'db_database' ] = 'dvwa';
 
 
@@ -27,7 +27,7 @@ $_DVWA[ 'db_database' ] = 'dvwa';
 #   Used for the 'Insecure CAPTCHA' module
 #   You'll need to generate your own keys at: https://www.google.com/recaptcha/admin
 $_DVWA[ 'recaptcha_public_key' ]  = '6LfvTl4kAAAAAPcx5kIoQG1m-oL532vVCxgR_DiN';
-$_DVWA[ 'recaptcha_private_key' ] = '6LfvTl4kAAAAADcTrOFAPLFlg6f6OeijhfIf4G4y';
+$_DVWA[ 'recaptcha_private_key' ] = 'mykey';
 
 
 
