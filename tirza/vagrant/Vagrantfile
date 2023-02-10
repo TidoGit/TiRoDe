@@ -12,7 +12,7 @@ echo "192.168.56.11 mysql mysql.haxor.corp" >> /etc/hosts
 echo "192.168.56.12 www www.haxor.corp" >> /etc/hosts
 
 # Fill in the rest here...
-yum install -y mariadb-server 
+yum install -y mariadb-server
 firewall-cmd --add-service=mysql --zone=public
 firewall-cmd --add-service=mysql --zone=public --permanent
 systemctl enable mariadb
@@ -43,9 +43,9 @@ echo "192.168.56.11 mysql mysql.haxor.corp" >> /etc/hosts
 echo "192.168.56.12 www www.haxor.corp" >> /etc/hosts
 
 # Fill in the rest here...
-setsebool -P httpd_unified 1
-setsebool -P httpd_can_network_connect 1
 setsebool -P httpd_can_network_connect_db 1
+semanage fcontext -a -t httpd_sys_rw_content_t "/var/www/html(/.*)?"
+
 
 
 yum install -y git mariadb httpd php php-mysqlnd php-gd 
@@ -59,6 +59,8 @@ firewall-cmd --add-service=https --zone=public --permanent
 git clone https://github.com/digininja/DVWA.git /var/www/html
 cp /vagrant/php.ini /etc/php.ini
 cp /vagrant/config.inc.php /var/www/html/config
+
+chcon -R -t httpd_sys_rw_content_t /var/www/html/
 chown -R apache:apache /var/www/html
 chmod -R 777 /var/www/html
 
@@ -116,5 +118,3 @@ Vagrant.configure("2") do |config|
   end
 
 end
-
-
